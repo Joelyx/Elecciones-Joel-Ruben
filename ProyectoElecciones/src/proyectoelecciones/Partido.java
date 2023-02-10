@@ -12,6 +12,15 @@ public class Partido {
     private String nombre;
     private int votos;
     private String presidente;
+    private int diputados;
+
+    public int getDiputados() {
+        return diputados;
+    }
+
+    public void setDiputados(int diputados) {
+        this.diputados = diputados;
+    }
 
     public Partido(String nombre, int votos, String presidente) {
         this.nombre = nombre;
@@ -32,6 +41,10 @@ public class Partido {
 
     public String getPresidente() {
         return presidente;
+    }
+    
+    public void addDiputado(){
+        diputados++;
     }
 
     @Override
