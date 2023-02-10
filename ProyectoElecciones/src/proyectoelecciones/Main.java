@@ -14,28 +14,43 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void seleccionarEleccion(){
+    private static ArrayList<Elecciones> listaElecciones = new ArrayList<Elecciones>();
+
+    public static void añadirPartido() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¿Que eleccion quieres seleccionar?");
-                    for(int i = 0; i < listaElecciones.size(); i++){
-                    System.out.println(i+1 +".- " +listaElecciones.get(i));
-                    }
-                    System.out.println("0.- Salir");
-                    int opcionEleccion = sc.nextInt();sc.nextLine();
-    }terminar esta mierda
-    
-    public static void crearElecciones(){
+        System.out.println("¿En que eleccion quieres añadir el partido?");
+        for (int i = 0; i < listaElecciones.size(); i++) {
+            System.out.println(i + 1 + ".- " + listaElecciones.get(i));
+        }
+        System.out.println("0.- Salir");
+        boolean salir = false;
+        int opcionEleccion = sc.nextInt();sc.nextLine();
+        do {
+            if (opcionEleccion == 0) {
+                salir = true;
+            } else {
+                Elecciones eleccionSeleccionada = listaElecciones.get(opcionEleccion - 1);
+                System.out.println("¿Cual es el nombre del partido?");
+                String nombre = sc.nextLine();
+                System.out.println("¿Cuantos votos tiene el partido?");
+                int votos = sc.nextInt();sc.nextLine();
+                System.out.println("¿Cual es el nombre del presidente?");
+                String presidente = sc.nextLine();
+                eleccionSeleccionada.addPartido(nombre, votos, presidente);
+
+            }
+        }while (salir == false);
+
+        }  
+
+    public static void crearElecciones() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Introduce cuantos diputados va a tener:");
-                    int diputados = sc.nextInt();sc.nextLine();
-                    Date fecha = new Date();
-                    pulir fecha
-                    
-                    Elecciones nuevasElecciones = new Elecciones(diputados,fecha);
-                    listaElecciones.add(nuevasElecciones);
+        int diputados = sc.nextInt();sc.nextLine();
+        Date fecha = new Date();
+        Elecciones nuevasElecciones = new Elecciones(diputados, fecha);
+        listaElecciones.add(nuevasElecciones);
     }
-    
-    private static ArrayList<Elecciones> listaElecciones = new ArrayList<Elecciones>();
 
     public static void listarElecciones() {
         for (int i = 0; i < listaElecciones.size(); i++) {
@@ -50,19 +65,18 @@ public class Main {
                 + "¿Que quieres hacer?  \n"
                 + "1. Ver elecciones. \n"
                 + "2. Crear elecciones. \n"
-                + "3. seleccionar eleccion"
+                + "3. Añadir partido."
                 + "4. Ver estadisticas \n"
-                + "5. Añadir partido "
-                + "6. Salir");
-        int opcion = sc.nextInt();
+                + "5. Salir");
+        int opcion = sc.nextInt();sc.nextLine();
         boolean salir = false;
 
         do {
             switch (opcion) {
                 case 1:
-                    if(listaElecciones.isEmpty()){
+                    if (listaElecciones.isEmpty()) {
                         System.out.println("Aun no hay elecciones creadas.");
-                    }else{
+                    } else {
                         listarElecciones();
                     }
                     break;
@@ -70,14 +84,11 @@ public class Main {
                     crearElecciones();
                     break;
                 case 3:
-                    seleccionarEleccion();
+                    añadirPartido();
                     break;
                 case 4:
-                    
                     break;
                 case 5:
-                    
-                case 6:
                     salir = true;
                     break;
             }
