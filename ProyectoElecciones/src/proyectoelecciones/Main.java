@@ -18,14 +18,16 @@ public class Main {
 
     public static void añadirPartido() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("¿En que eleccion quieres añadir el partido?");
+        
+        boolean salir = false;
+        
+        do {
+            System.out.println("¿En que eleccion quieres añadir el partido?");
         for (int i = 0; i < listaElecciones.size(); i++) {
             System.out.println(i + 1 + ".- " + listaElecciones.get(i));
         }
         System.out.println("0.- Salir");
-        boolean salir = false;
-        int opcionEleccion = sc.nextInt();sc.nextLine();
-        do {
+            int opcionEleccion = sc.nextInt();sc.nextLine();
             if (opcionEleccion == 0) {
                 salir = true;
             } else {
@@ -61,7 +63,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Menu elecciones  \n"
+        
+        boolean salir = false;
+
+        do {
+            System.out.println("Menu elecciones  \n"
                 + "¿Que quieres hacer?  \n"
                 + "1. Ver elecciones. \n"
                 + "2. Crear elecciones. \n"
@@ -69,9 +75,6 @@ public class Main {
                 + "4. Ver estadisticas \n"
                 + "5. Salir");
         int opcion = sc.nextInt();sc.nextLine();
-        boolean salir = false;
-
-        do {
             switch (opcion) {
                 case 1:
                     if (listaElecciones.isEmpty()) {

@@ -34,6 +34,21 @@ public class Partido {
         return presidente;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setVotos(int votos) {
+        this.votos = votos;
+    }
+
+    public void setPresidente(String presidente) {
+        this.presidente = presidente;
+    }
+
+    
+    
+    
     @Override
     public String toString() {
         return "Nombre: " + nombre + ", Votos: " + votos + ", Presidente: " + presidente;
