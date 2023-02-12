@@ -65,7 +65,7 @@ public class Main {
                 + "¿Que quieres hacer?  \n"
                 + "1. Ver elecciones. \n"
                 + "2. Crear elecciones. \n"
-                + "3. Añadir partido."
+                + "3. Añadir partido. \n"
                 + "4. Ver estadisticas \n"
                 + "5. Salir");
         int opcion = sc.nextInt();sc.nextLine();
