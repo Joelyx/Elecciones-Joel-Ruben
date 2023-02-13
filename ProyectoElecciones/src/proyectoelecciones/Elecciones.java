@@ -64,9 +64,9 @@ public class Elecciones {
     @Override
     public String toString() {
         String res="Elecciones del " + fecha + "";
-//        for (int i = 0; i < partidos.size(); i++) {
-//            res+="\n Patido "+i+") "+partidos.get(i);
-//        }
+        for (int i = 0; i < partidos.size(); i++) {
+            res+="\n Patido "+i+") "+partidos.get(i);
+        }
         
         return res;
     }
