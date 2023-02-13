@@ -39,7 +39,7 @@ public class Main {
                 System.out.println("¿Cual es el nombre del presidente?");
                 String presidente = sc.nextLine();
                 eleccionSeleccionada.addPartido(nombre, votos, presidente);
-
+                salir = true;
             }
         }while (salir == false);
 
