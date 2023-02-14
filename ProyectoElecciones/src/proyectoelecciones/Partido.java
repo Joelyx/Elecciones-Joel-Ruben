@@ -7,16 +7,19 @@ package proyectoelecciones;
 /**
  *
  * @author Joel Hernández Martín joelyx96@gmail.com
+ * @author Ruben Gonzalez Sabina
  */
 public class Partido {
     private String nombre;
     private int votos;
-    private String presidente;
+    private String presidente;   
+    private int diputados;
 
     public Partido(String nombre, int votos, String presidente) {
         this.nombre = nombre;
         this.votos = votos;
-        this.presidente = presidente;
+        this.presidente = presidente;        
+        this.diputados = 0;
     }
 
     public Partido() {
@@ -46,12 +49,18 @@ public class Partido {
         this.presidente = presidente;
     }
 
+ 
+
+  
+    public void setDiputados() {
+        this.diputados += 1;
+    }
     
     
     
     @Override
     public String toString() {
-        return "Nombre: " + nombre + ", Votos: " + votos + ", Presidente: " + presidente;
+        return "Nombre: " + nombre + " Votos: " + votos + " Presidente: " + presidente + " Diputados: " + diputados + "\n";
     }
     
     

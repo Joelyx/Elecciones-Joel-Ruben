@@ -10,17 +10,20 @@ import java.util.Date;
 /**
  *
  * @author Joel Hernández Martín joelyx96@gmail.com
+ * @author Ruben Gonzalez Sabina
  */
 public class Elecciones {
+
     private ArrayList<Partido> partidos = new ArrayList<Partido>();
     private int diputadosTotales;
     private Date fecha;
-    
-    public Elecciones(){}
-    
-    public Elecciones(int diputados, Date fecha){
-        this.diputadosTotales=diputados;
-        this.fecha=fecha;
+
+    public Elecciones() {
+    }
+
+    public Elecciones(int diputados, Date fecha) {
+        this.diputadosTotales = diputados;
+        this.fecha = fecha;
     }
 
     public Elecciones(ArrayList<Partido> partidos, int diputadosTotales, Date fecha) {
@@ -28,8 +31,8 @@ public class Elecciones {
         this.diputadosTotales = diputadosTotales;
         this.fecha = fecha;
     }
-    
-    public void addPartido(String nombre, int votos, String presidente){
+
+    public void addPartido(String nombre, int votos, String presidente) {
         Partido partido = new Partido(nombre, votos, presidente);
         partidos.add(partido);
     }
@@ -58,19 +61,57 @@ public class Elecciones {
         this.fecha = fecha;
     }
 
-    
-    
-    
     @Override
     public String toString() {
-        String res="Elecciones del " + fecha + "";
+        String res = "Elecciones del " + fecha + "";
         for (int i = 0; i < partidos.size(); i++) {
-            res+="\n Patido "+i+") "+partidos.get(i);
+            res += "\n Patido " + i + ") " + partidos.get(i);
         }
-        
+
         return res;
     }
-    
-    
-    
+
+    public void asignarDiputados() {
+//        System.out.println("PRUEBA ASIGNAR DIPUTADOS");
+        double[][] totales = new double[this.diputadosTotales][this.partidos.size()];
+        for (int x = 0; x < totales.length; x++) {
+            for (int y = 0; y < totales[x].length; y++) {
+                totales[x][y] = this.partidos.get(y).getVotos() / (x + 1);
+            }
+        }
+
+        double max = 0;
+        int row = 0;
+        int col = 0;
+
+        for (int i = 1; i <= this.diputadosTotales; i++) {
+            for (int x = 0; x < totales.length; x++) {
+                for (int y = 0; y < totales[x].length; y++) {
+                    double num = totales[x][y];
+                    if (num > max) {
+                        max = num;
+                        row = x;
+                        col = y;
+                    }
+                }
+            }
+            this.partidos.get(col).setDiputados();
+            max = 0;
+            totales[row][col] = 0;
+        }
+
+//        for (int x = 0; x < totales.length; x++) {
+//            System.out.print("|");
+//            for (int y = 0; y < totales[x].length; y++) {
+//                System.out.print(totales[x][y]);
+//                if (y != totales[x].length - 1) {
+//                    System.out.print("\t");
+//                }
+//            }
+//            System.out.println("|");
+//        }
+        System.out.println(this.partidos);
+
+    }
+
 }
