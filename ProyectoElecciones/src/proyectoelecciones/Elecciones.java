@@ -72,7 +72,6 @@ public class Elecciones {
     }
 
     public void asignarDiputados() {
-//        System.out.println("PRUEBA ASIGNAR DIPUTADOS");
         double[][] totales = new double[this.diputadosTotales][this.partidos.size()];
         for (int x = 0; x < totales.length; x++) {
             for (int y = 0; y < totales[x].length; y++) {
@@ -81,8 +80,8 @@ public class Elecciones {
         }
 
         double max = 0;
-        int row = 0;
-        int col = 0;
+        int fila = 0;
+        int columna = 0;
 
         for (int i = 1; i <= this.diputadosTotales; i++) {
             for (int x = 0; x < totales.length; x++) {
@@ -90,26 +89,16 @@ public class Elecciones {
                     double num = totales[x][y];
                     if (num > max) {
                         max = num;
-                        row = x;
-                        col = y;
+                        fila = x;
+                        columna = y;
                     }
                 }
             }
-            this.partidos.get(col).setDiputados();
+            this.partidos.get(columna).setDiputados();
             max = 0;
-            totales[row][col] = 0;
+            totales[fila][columna] = 0;
         }
 
-//        for (int x = 0; x < totales.length; x++) {
-//            System.out.print("|");
-//            for (int y = 0; y < totales[x].length; y++) {
-//                System.out.print(totales[x][y]);
-//                if (y != totales[x].length - 1) {
-//                    System.out.print("\t");
-//                }
-//            }
-//            System.out.println("|");
-//        }
         System.out.println(this.partidos);
 
     }
