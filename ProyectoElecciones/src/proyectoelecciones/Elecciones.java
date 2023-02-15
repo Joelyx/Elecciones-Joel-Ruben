@@ -70,7 +70,6 @@ public class Elecciones {
 
         return res;
     }
-<<<<<<< HEAD
 
     public void asignarDiputados() {
         double[][] totales = new double[this.diputadosTotales][this.partidos.size()];
@@ -104,7 +103,6 @@ public class Elecciones {
 
     }
 
-=======
     
     public void calcularDiputados(){
         int[] divisiones = new int[diputadosTotales];
@@ -129,20 +127,7 @@ public class Elecciones {
         }
         
         
-        /*
-        for (int i = 0; i < diputadosTotales; i++) {
-            int max=-1;
-            int partidoIndex=-1;
-            for (int j = 0; j < partidos.size(); j++) {
-                if(max<partidos.get(j).getVotos()/i){
-                    partidoIndex=j;
-                }
-                partidos.get(partidoIndex).setDiputados(partidos.get(partidoIndex).getDiputados()+1);
-                
-            }
-            
-        }*/
+       
     }
     
->>>>>>> 02f22b63a0767c30bbec68c0b65e404715a34a6a
 }

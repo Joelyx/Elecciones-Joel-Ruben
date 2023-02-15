@@ -12,12 +12,10 @@ package proyectoelecciones;
 public class Partido {
     private String nombre;
     private int votos;
-<<<<<<< HEAD
+
     private String presidente;   
     private int diputados;
-=======
-    private String presidente;
-    private int diputados;
+
 
     public int getDiputados() {
         return diputados;
@@ -26,7 +24,7 @@ public class Partido {
     public void setDiputados(int diputados) {
         this.diputados = diputados;
     }
->>>>>>> 02f22b63a0767c30bbec68c0b65e404715a34a6a
+
 
     public Partido(String nombre, int votos, String presidente) {
         this.nombre = nombre;
