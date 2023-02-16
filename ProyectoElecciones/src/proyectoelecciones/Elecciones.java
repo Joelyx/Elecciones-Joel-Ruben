@@ -124,10 +124,33 @@ public class Elecciones {
                 }
             }
             partidos.get(max).addDiputado();
+        }  
+    }
+    
+    public void caculoProporcional(){
+        int total = 0;
+        for (Partido partido : partidos) {
+            total+=partido.getVotos();
         }
-        
-        
-       
+        int totalDiputados = diputadosTotales;
+        int costeDiputado = Math.round((float)(total) / diputadosTotales);
+        for (int i = 0; i < partidos.size(); i++) {
+            for (int j = 0; j < partidos.get(i).getVotos()/costeDiputado; j++) {
+                partidos.get(i).addDiputado();
+                totalDiputados--;
+            }
+        }
+        while(totalDiputados>0){
+            Partido partidoMaximo = partidos.get(0);
+            for (int i = 0; i < partidos.size(); i++) {
+                Partido partido = partidos.get(i);
+                if(partido.getVotos() - costeDiputado*partido.getDiputados() > partidoMaximo.getVotos() - costeDiputado*partido.getDiputados()){
+                    partidoMaximo = partido;
+                }
+            }
+            partidoMaximo.addDiputado();
+            totalDiputados--;
+        }
     }
     
 }
