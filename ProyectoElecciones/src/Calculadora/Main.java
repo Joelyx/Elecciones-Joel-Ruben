@@ -56,6 +56,11 @@ public class Main {
             } 
             }
             while (salir == false);
+        String operacion = "4 3.2 * 8 -";
+        Caculadora  calculadora = new Caculadora();
+        System.out.println(calculadora.calcular(operacion));
+        
+        
         }
     
     
