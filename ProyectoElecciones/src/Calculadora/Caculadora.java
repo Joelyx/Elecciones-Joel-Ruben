@@ -12,8 +12,8 @@ import java.util.Stack;
  * @author Joel Hernández Martín joelyx96@gmail.com
  */
 public class Caculadora {
-    Stack pila = new Stack();
-    ArrayList<Integer> historico;
+    Stack<String> pila = new Stack();
+    ArrayList<Double> historico;
 
     public Caculadora() {
         ArrayList<Integer> historico = new ArrayList();
@@ -25,30 +25,31 @@ public class Caculadora {
             
             switch(strings[i]){
                 case "+":
-                    int num1 = (int)pila.pop();
-                    int num2 = (int)pila.pop();
-                    pila.push(num1+num2);
+                    double num1 = Double.parseDouble(pila.pop());
+                    double num2 = Double.parseDouble(pila.pop());
+                    pila.push((num1+num2)+"");
                     break;
                 case "-":
-                    int num3 = (int)pila.pop();
-                    int num4 = (int)pila.pop();
-                    pila.push(num3-num4);
+                    double num3 = Double.parseDouble(pila.pop());
+                    double num4 = Double.parseDouble(pila.pop());
+                    pila.push((num4-num3)+"");
                     break;
                 case "/":
-                    int num5 = (int)pila.pop();
-                    int num6 = (int)pila.pop();
-                    pila.push(num5/num6);
+                    double num5 = Double.parseDouble(pila.pop());
+                    double num6 = Double.parseDouble(pila.pop());
+                    pila.push((num5/num6)+"");
                     break;
                 case "*":
-                    int num7 = (int)pila.pop();
-                    int num8 = (int)pila.pop();
-                    pila.push(num7*num8);
+                    double num7 = Double.parseDouble(pila.pop());
+                    double num8 = Double.parseDouble(pila.pop());
+                    pila.push((num7*num8)+"");
                     break;
                 default:
                     pila.push(strings[i]);
             }
         }
-        historico.add((int)pila.pop());
-        return historico.get(historico.size());
+        double res=Double.parseDouble(pila.pop());
+        //historico.add(res);
+        return res;
     }
 }

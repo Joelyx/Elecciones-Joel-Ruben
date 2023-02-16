@@ -28,31 +28,16 @@ public class Main {
                     + "1.- Sumar \n"
                     + "2.- Restar \n"
                     + "3.- Multiplicar \n"
-                    + "4.- Dividir \n"
                     + "0.- Salir \n");
 
             int opcion = sc.nextInt();
 
             switch(opcion){
                 case 1:
-                    System.out.println("Escribe la suma que quieras hacer: Ejemplo '2 3 +'");
-                    String suma = sc.nextLine();
-                    calculadora.calcular(suma);
                     break;
                 case 2:
-                    System.out.println("Escribe la resta que quieras hacer: Ejemplo '7 2 -'");
-                    String resta = sc.nextLine();
-                    calculadora.calcular(resta);
                     break;
                 case 3:
-                    System.out.println("Escribe la multiplicacion que quieras hacer: Ejemplo '4 3.2 *'");
-                    String multi = sc.nextLine();
-                    calculadora.calcular(multi);
-                    break;
-                case 4:
-                    System.out.println("Escribe la division que quieras hacer: Ejemplo '6 3 /'");
-                    String divi = sc.nextLine();
-                    calculadora.calcular(divi);
                     break;
                 case 0:
                     salir = true;
