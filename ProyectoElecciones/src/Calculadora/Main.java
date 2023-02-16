@@ -14,31 +14,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        boolean salir = false;  
-        do {
-            System.out.println("Menu calculadora \n "
-                    + "Que quiere hacer? \n"
-                    + "1.- Sumar \n"
-                    + "2.- Restar \n"
-                    + "3.- Multiplicar \n"
-                    + "0.- Salir \n");
-
-            int opcion = sc.nextInt();
-
-            switch(opcion){
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 0:
-                    salir = true;
-                    break;
-            } 
-            }
-            while (salir == false);
+        String operacion = "4 3.2 * 8 -";
+        Caculadora  calculadora = new Caculadora();
+        System.out.println(calculadora.calcular(operacion));
+        
+        
         }
     
     
