@@ -22,6 +22,7 @@ public class Main {
                     + "1.- Sumar \n"
                     + "2.- Restar \n"
                     + "3.- Multiplicar \n"
+                    + "4.- Dividir \n"
                     + "0.- Salir \n");
 
             int opcion = sc.nextInt();
@@ -32,6 +33,8 @@ public class Main {
                 case 2:
                     break;
                 case 3:
+                    break;
+                case 4:
                     break;
                 case 0:
                     salir = true;
